@@ -1,37 +1,37 @@
 import { useState, useEffect } from "react";
-import { postComment } from "../api";
+import { useContext } from "react";
+import { postComment } from "../Utils/api";
+import { UserContext } from "../Utils/User";
 
 export function PostComment({ article_id }) {
+  const [textBody, setTextBody] = useState("");
 
-  const [textBox, setTextBox] = useState("");
+  const [newComment, setNewComment] = useState({});
 
-  const [newComment, setNewComment] = useState({})
+  const { loggedInUser, isLoggedIn } = useContext(UserContext);
 
   const handleChange = (event) => {
-    setTextBox(event.target.value);
+    setTextBody(event.target.value);
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    postComment(article_id, textBox);
+      event.preventDefault();
+      setTextBody("");
+      postComment(article_id, loggedInUser, textBody)
+        .then((res) => {
+          alert("posted!");
+        })
     
   };
-
-  //   useEffect(() => {
-  //     postComment(article_id, textBox).then((postedCommentFromApi) => {
-  //         console.log(postedCommentFromApi)
-  //     })
-
-  //   }, []);
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className="post-cmnt-label">
           Post a comment:
           <textarea
             className="textarea-box"
-            value={textBox}
+            value={textBody}
             onChange={handleChange}
             placeholder="type your comment here..."
             required
@@ -40,7 +40,9 @@ export function PostComment({ article_id }) {
           />
         </label>
         <br></br>
-        <button className='post-button'  type="submit">Post</button>
+        <button className="post-button" type="submit">
+          Post
+        </button>
       </form>
     </div>
   );

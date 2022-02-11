@@ -1,30 +1,27 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getCommentsForArticle } from "../api";
+import { useEffect, useState, useContext } from "react";
+import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
+import { UserContext } from "../Utils/User";
 
 export function Comments() {
   const { article_id } = useParams();
 
-  const [comments, setComments] = useState([]);
+ const { isLoggedIn, loggedInUser } = useContext(UserContext);
 
-  
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     getCommentsForArticle(article_id).then((commentsFromApi) => {
       setComments(commentsFromApi);
     });
-  }, []);
+  }, [comments]);
 
-  const handleDeleteComment = () => {
-    console.log()
-  }
-
-  // useEffect(() => {
-  //   getCommentsForArticle(article_id).then((commentsFromApi) => {
-  //     setComments(commentsFromApi);
-  //   });
-  // }, [voteUpdater]);
+  const handleDeleteComment = (value) => () => {
+    deleteComment(value).then((res) => {
+      alert("deleted!");
+    });
+  };
 
   return (
     <div>
@@ -33,15 +30,23 @@ export function Comments() {
           return (
             <li className="comments-card" key={comment.comment_id}>
               <p className="comments-author">
-                {comment.author} posted on {comment.created_at}
+                <span style={{ color: "rgb(253, 118, 0)" }}>
+                  {comment.author}
+                </span>{" "}
+                posted on {comment.created_at}
               </p>
               <p className="comments-body">{comment.body}</p>
-              <button onClick={handleDeleteComment}>Delete</button>
+              {loggedInUser === comment.author ? <button
+                className="del-btn"
+                onClick={handleDeleteComment(comment.comment_id)}
+              >
+                Delete
+              </button> : null}
             </li>
           );
         })}
       </ul>
-        <PostComment article_id={article_id}/>
+      <PostComment article_id={article_id} />
     </div>
   );
 }

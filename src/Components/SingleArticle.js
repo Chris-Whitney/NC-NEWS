@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getSingleArticle } from "../api";
+import { getSingleArticle } from "../Utils/api";
 import { Comments } from "./Comments";
 
 export function SingleArticle() {
@@ -21,9 +21,9 @@ export function SingleArticle() {
         <h2 className="sing-art-title">{singleArticle.title}</h2>
         <li className="sing-art-body">{singleArticle.body}</li>
         <br></br>
-        <li className="sing-art-author">Posted by {singleArticle.author} {singleArticle.created_at}</li>
+        <li className="sing-art-author">Posted by <span style={{color: 'rgb(253, 118, 0)'}}>{singleArticle.author}</span> {singleArticle.created_at}</li>
       </ul>
-      <h3>Comments:</h3>
+      <h3 className="sing-art-h3">Comments:</h3>
       <Comments />
     </div>
   );

@@ -1,13 +1,13 @@
 body {
   text-align: left;
-  background-color: rgb(255, 148, 148);
+  background-color: rgb(255, 242, 200);
 }
 
 .header {
   text-align: center;
   color: red;
   background-color: rgb(0, 0, 0);
-  border: 1px solid red;
+  border: 3px solid red;
   text-shadow:
    -1px -1px 0 rgb(255, 255, 255),  
     1px -1px 0 rgb(255, 255, 255),
@@ -15,12 +15,21 @@ body {
      1px 1px 0 rgb(255, 255, 255);
 }
 
+.header-login {
+  color: white;
+  text-shadow: none;
+  text-align: right;
+  
+  padding-right: 20px;
+  
+}
+
 
 /* components */
 .nav-bar {
   margin: 5px;
-  border: 1px solid blue;
-  text-align: center;
+  
+  text-align: left;
 }
 
 .select-box {
@@ -38,9 +47,7 @@ body {
 }
 
 /* Articles */
-.articles-div {
-  border: 1px solid green;
-}
+
 
 ul {
   list-style-type: none;
@@ -53,15 +60,19 @@ ul {
 }
 
 .articles-li {
-  border: 1px solid;
+  border: 2px solid;
   background-color: white;
   margin: 20px;
   padding: 0px 10px 10px 10px;
   border-radius: 10px;
 }
 
+.sing-art-h3 {
+margin-left: 20px;
+}
+
 .sing-art-li {
-  border: 1px solid;
+  border: 2px solid;
   background-color: white;
   margin: 20px;
   padding: 0px 10px 10px 10px;
@@ -69,13 +80,27 @@ ul {
 }
 
 .articles-topic {
-  color:rgb(253, 118, 0)
+  color:black;
+  font-weight: bold;
+}
+
+.sort-btn {
+  margin-top: 10px;
+  margin-left: 5px;
+  background-color: #009cf0;
+  border-radius: 10px;
+}
+
+.sort-bar {
+  display: flex;
+  justify-content: center;
+  
 }
 /* comments */
 
 .comments-card {
-  border: 1px solid;
-  background-color: rgb(238, 235, 235);
+  border: 2px solid;
+  background-color: rgb(255, 255, 255);
   margin: 20px;
   padding: 0px 10px 0px 10px;
   border-radius: 10px;
@@ -86,10 +111,35 @@ ul {
 .votes-btn {
   padding: 5px;
   margin: 5px;
+  background-color: #009cf0;
+  border-radius: 10px;
 }
 
+.textarea-box {
+  border:0px;
+  display: flex;
+  justify-content: center;
+  margin-left: 25px;
+  margin-top:10px;
+}
 
+.post-button {
+  margin-left: 25px;
+  padding: 5px;
+  background-color: #009cf0;
+  border-radius: 10px;
+}
 
+.post-cmnt-label {
+  margin-left: 25px;
+}
+
+.del-btn {
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #009cf0;
+  border-radius: 10px;
+}
 
 /* footer */
 .footer {

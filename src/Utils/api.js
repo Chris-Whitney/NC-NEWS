@@ -5,9 +5,11 @@ const newsApi = axios.create({
 });
 
 export const getArticles = (sort_by, topic) => {
-  return newsApi.get(`/articles`, { params: {sort_by, topic}}).then((res) => {
-    return res.data.articles;
-  });
+  return newsApi
+    .get(`/articles`, { params: { sort_by, topic } })
+    .then((res) => {
+      return res.data.articles;
+    });
 };
 
 export const getTopics = () => {
@@ -28,6 +30,12 @@ export const getCommentsForArticle = (id) => {
   });
 };
 
+export const getAllUsers = () => {
+  return newsApi.get(`/users`).then((res) => {
+    return res.data.users;
+  });
+};
+
 export const patchArticleVoteInc = (id) => {
   return newsApi.patch(`/articles/${id}`, { inc_votes: 1 }).then((res) => {
     return res.data.updatedArticle;
@@ -40,16 +48,21 @@ export const patchArticleVoteDec = (id) => {
   });
 };
 
-export const postComment = (id, body) => {
-  return newsApi.post(`/articles/${id}/comments`,  { username: "jessjelly", body: body}).then((res) => {
-      console.log(res,"<<<<in api")
-  }).catch((err) => {
-      if (err) console.log(err)
-  })
+export const postComment = (id, user, body) => {
+  console.log(user,"<<<user in api")
+  return newsApi
+    .post(`/articles/${id}/comments`, { username: user, body: body })
+    .then((res) => {
+      console.log(res.data,"<<<user in api")
+      return res.data.comment
+    })
+    .catch((err) => {
+      if (err) console.log(err);
+    });
 };
 
-export const deleteComment = (article_id, comment_id) => {
-    return newsApi.delete(`articles/${article_id}/comments/${comment_id}`).then(() => {
-        return; 
-    })
-}
+export const deleteComment = (comment_id) => {
+  return newsApi.delete(`comments/${comment_id}`).then(() => {
+    return;
+  });
+};

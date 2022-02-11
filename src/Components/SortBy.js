@@ -1,4 +1,4 @@
-export function SortBy({setSortBy, sortBy}) {
+export function SortBy({setSortBy}) {
 
 
   const handleSortDate = () => {
@@ -9,12 +9,12 @@ export function SortBy({setSortBy, sortBy}) {
       setSortBy('votes')
   };
 
-  const handleSortComments = () => {
-      setSortBy('comment_count')
+  const handleSortComments = (event) => {
+      setSortBy('comment_count');
   };
 
   return (
-    <div>
+    <div className="sort-bar">
       <p className="sortby-p">Sort by:</p>
       <button className="sort-btn" onClick={handleSortDate}>
         Date
@@ -22,7 +22,7 @@ export function SortBy({setSortBy, sortBy}) {
       <button className="sort-btn" onClick={handleSortVotes}>
         Votes
       </button>
-      <button className="sort-btn" onClick={handleSortComments}>
+      <button disabled='' className="sort-btn" onClick={handleSortComments}>
         Comments
       </button>
     </div>

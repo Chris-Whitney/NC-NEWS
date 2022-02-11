@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { getTopics } from "../api";
+import { getTopics } from "../Utils/api";
 
-export function Nav({setTopicFilter, setSortBy}) {
-  
-    const [topics, setTopics] = useState([]);
-  
+export function Nav({ setTopicFilter, setSortBy }) {
+  const [topics, setTopics] = useState([]);
 
   useEffect(() => {
     getTopics().then((topicsFromApi) => {
@@ -12,11 +10,9 @@ export function Nav({setTopicFilter, setSortBy}) {
     });
   }, []);
 
- const handleDropdownClick =(event) => {
-    setTopicFilter(event.target.value)
- };
-
- 
+  const handleDropdownClick = (event) => {
+    setTopicFilter(event.target.value);
+  };
 
   return (
     <div className="nav-bar">
