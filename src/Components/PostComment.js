@@ -6,7 +6,7 @@ import { UserContext } from "../Utils/User";
 export function PostComment({ article_id }) {
   const [textBody, setTextBody] = useState("");
 
-  const [newComment, setNewComment] = useState({});
+  // const [newComment, setNewComment] = useState({});
 
   const { loggedInUser, isLoggedIn } = useContext(UserContext);
 
@@ -15,12 +15,17 @@ export function PostComment({ article_id }) {
   };
 
   const handleSubmit = (event) => {
+    if(isLoggedIn) {
       event.preventDefault();
       setTextBody("");
       postComment(article_id, loggedInUser, textBody)
         .then((res) => {
           alert("posted!");
         })
+    } else {
+      alert("Please login to comment")
+    }
+      
     
   };
 
@@ -36,13 +41,15 @@ export function PostComment({ article_id }) {
             placeholder="type your comment here..."
             required
             rows="4"
-            cols="50"
+            cols="40"
           />
         </label>
         <br></br>
+        <div className="post-cmnt-btn">
         <button className="post-button" type="submit">
           Post
         </button>
+        </div>
       </form>
     </div>
   );

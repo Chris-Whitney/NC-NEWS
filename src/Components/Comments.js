@@ -3,11 +3,12 @@ import { useEffect, useState, useContext } from "react";
 import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
 import { UserContext } from "../Utils/User";
+import { VoteUpdater } from "./VoteUpdater";
 
 export function Comments() {
   const { article_id } = useParams();
 
- const { isLoggedIn, loggedInUser } = useContext(UserContext);
+  const { isLoggedIn, loggedInUser } = useContext(UserContext);
 
   const [comments, setComments] = useState([]);
 
@@ -18,9 +19,8 @@ export function Comments() {
   }, [comments]);
 
   const handleDeleteComment = (value) => () => {
-    deleteComment(value).then((res) => {
-      alert("deleted!");
-    });
+    deleteComment(value);
+    alert("deleted!");
   };
 
   return (
@@ -36,12 +36,18 @@ export function Comments() {
                 posted on {comment.created_at}
               </p>
               <p className="comments-body">{comment.body}</p>
-              {loggedInUser === comment.author ? <button
-                className="del-btn"
-                onClick={handleDeleteComment(comment.comment_id)}
-              >
-                Delete
-              </button> : null}
+              {loggedInUser === comment.author ? (
+                <div className="del-btn-container">
+                <button
+                  className="del-btn"
+                  onClick={handleDeleteComment(comment.comment_id)}
+                >
+                  X
+                </button>
+                
+                </div>
+              ) : null}
+              {/* <VoteUpdater /> */}
             </li>
           );
         })}

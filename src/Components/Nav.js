@@ -18,7 +18,7 @@ export function Nav({ setTopicFilter, setSortBy }) {
     <div className="nav-bar">
       <form>
         <label className="select-box-label">
-          Filter by topic:
+          Topic:
           <select className="select-box" onChange={handleDropdownClick}>
             <option value="" disabled selected hidden>
               select topic
