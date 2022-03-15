@@ -23,9 +23,9 @@ function App() {
       >
         <div>
           <Header />
-          <Nav setTopicFilter={setTopicFilter} />
+          {/* <Nav setTopicFilter={setTopicFilter} /> */}
           <Routes>
-            <Route path="/" element={<Articles topicFilter={topicFilter} />} />
+            <Route path="/" element={<Articles setTopicFilter={setTopicFilter} topicFilter={topicFilter} />} />
             <Route path="/:article_id" element={<SingleArticle />} />
             <Route path="/login" element={<Login />} />
           </Routes>

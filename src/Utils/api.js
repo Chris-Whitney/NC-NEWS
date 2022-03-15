@@ -49,11 +49,9 @@ export const patchArticleVoteDec = (id) => {
 };
 
 export const postComment = (id, user, body) => {
-  console.log(user,"<<<user in api")
   return newsApi
     .post(`/articles/${id}/comments`, { username: user, body: body })
     .then((res) => {
-      console.log(res.data,"<<<user in api")
       return res.data.comment
     })
     .catch((err) => {

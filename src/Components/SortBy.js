@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 
-export function SortBy({setSortBy}) {
 
+export function SortBy({setSortBy}) {
 
   const handleSortDate = () => {
     setSortBy("created_at");
