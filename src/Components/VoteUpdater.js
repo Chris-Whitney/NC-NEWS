@@ -6,10 +6,13 @@ import { UserContext } from "../Utils/User";
 export function VoteUpdater({ votes, articleId, setVoteUpdater }) {
   const [vote, setVote] = useState(votes);
 
+  const [hasVoted, setHasVoted] = useState(false);
+
   const { setLoggedInUser, isLoggedIn, loggedInUser } = useContext(UserContext);
 
   const addVotes = () => {
     if (isLoggedIn) {
+      setHasVoted(true);
       setVote((currVote) => currVote + 1);
       patchArticleVoteInc(articleId).then(() => {
         setVoteUpdater((currVote) => currVote + 1);
@@ -21,6 +24,7 @@ export function VoteUpdater({ votes, articleId, setVoteUpdater }) {
 
   const minusVotes = () => {
     if (isLoggedIn) {
+      setHasVoted(true);
       setVote((currVote) => currVote - 1);
       patchArticleVoteDec(articleId).then(() => {
         setVoteUpdater((currVote) => currVote - 1);
@@ -32,13 +36,26 @@ export function VoteUpdater({ votes, articleId, setVoteUpdater }) {
 
   return (
     <>
+    {hasVoted ? (
+      <>
+      <button className="votes-btn" disabled>
+        👍
+      </button>
+     {vote}
+      <button className="votes-btn" disabled>
+        👎
+      </button>
+      </>
+    ) : 
+    <>
       <button className="votes-btn" onClick={addVotes}>
         👍
       </button>
-      {vote}
+     {vote}
       <button className="votes-btn" onClick={minusVotes}>
         👎
       </button>
+      </> } 
     </>
   );
 }

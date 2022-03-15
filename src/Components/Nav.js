@@ -19,12 +19,12 @@ export function Nav({ setTopicFilter, setSortBy }) {
       <form>
         <label className="select-box-label">
           Topic:
-          <select className="select-box" onChange={handleDropdownClick}>
-            <option value="" disabled selected hidden>
+          <select defaultValue={"select topic"}onChange={handleDropdownClick}>
+            <option value='select topic' disabled>
               select topic
             </option>
             {topics.map((topic) => {
-              return <option key={topic.slug}>{topic.slug}</option>;
+              return <option value={topic.slug} key={topic.slug}>{topic.slug}</option>;
             })}
           </select>
         </label>

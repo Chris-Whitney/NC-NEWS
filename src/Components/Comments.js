@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
 import { UserContext } from "../Utils/User";
-import { VoteUpdater } from "./VoteUpdater";
+// import { VoteUpdater } from "./VoteUpdater";
 
 export function Comments() {
   const { article_id } = useParams();
