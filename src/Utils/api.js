@@ -54,9 +54,6 @@ export const postComment = (id, user, body) => {
     .then((res) => {
       return res.data.comment
     })
-    .catch((err) => {
-      if (err) console.log(err);
-    });
 };
 
 export const deleteComment = (comment_id) => {

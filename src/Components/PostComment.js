@@ -6,6 +6,8 @@ import { UserContext } from "../Utils/User";
 export function PostComment({ article_id }) {
   const [textBody, setTextBody] = useState("");
 
+  const [loginPrompt, setLoginPrompt] = useState("");
+
   // const [newComment, setNewComment] = useState({});
 
   const { loggedInUser, isLoggedIn } = useContext(UserContext);
@@ -20,10 +22,14 @@ export function PostComment({ article_id }) {
       setTextBody("");
       postComment(article_id, loggedInUser, textBody)
         .then((res) => {
-          alert("posted!");
+         alert("posted!");
+        })
+        .catch((err) => {
+          console.log(err.response)
         })
     } else {
-      alert("Please login to comment")
+      event.preventDefault();
+      setLoginPrompt("Please login to comment")
     }
       
     
@@ -34,6 +40,7 @@ export function PostComment({ article_id }) {
       <form onSubmit={handleSubmit}>
         <label className="post-cmnt-label">
           Post a comment:
+          <p className="login-prompt">{loginPrompt}</p>
           <textarea
             className="textarea-box"
             value={textBody}

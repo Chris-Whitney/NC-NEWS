@@ -1,18 +1,16 @@
-import Button from '@mui/material/Button';
+import Button from "@mui/material/Button";
 
-
-export function SortBy({setSortBy}) {
-
+export function SortBy({ setSortBy }) {
   const handleSortDate = () => {
     setSortBy("created_at");
   };
 
   const handleSortVotes = () => {
-      setSortBy('votes')
+    setSortBy("votes");
   };
 
   const handleSortComments = (event) => {
-      setSortBy('comment_count');
+    setSortBy("comment_count");
   };
 
   return (
@@ -24,7 +22,7 @@ export function SortBy({setSortBy}) {
       <button className="sort-btn" onClick={handleSortVotes}>
         Votes
       </button>
-      <button disabled='' className="sort-btn" onClick={handleSortComments}>
+      <button disabled="" className="sort-btn" onClick={handleSortComments}>
         Comments
       </button>
     </div>

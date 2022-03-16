@@ -6,6 +6,8 @@
 
 > A live version can be accessed here: https://chris-corner.netlify.app/
 
+> A link to the backend 
+
 ---
 ## How to run a local copy
 ### 1. Install dependencies
@@ -19,14 +21,5 @@ At a minimum, [Node 17.0.1](https://nodejs.org/en/) must be installed.
 $ npm start
 ```
 The locally hosted web-app will open in your browser.
-
----
-## Changing API link
-Beware that the API link may not be currently available. In order to use your own, change the `baseURL` of the `axios.create` function in `/src/utils/api.js`:
-```
-const newsApi = axios.create({
-  baseURL: /* your URL here */,
-});
-```
 
 ---

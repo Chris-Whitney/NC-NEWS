@@ -10,6 +10,8 @@ export function Articles({ topicFilter }) {
 
   const [loading, setLoading] = useState(false);
 
+  const [error, setError] = useState(false);
+  
   const [articles, setArticles] = useState([]);
 
   const [sortBy, setSortBy] = useState("created_at");
@@ -20,7 +22,10 @@ export function Articles({ topicFilter }) {
     getArticles(sortBy, topicFilter).then((articlesFromApi) => {
       setArticles(articlesFromApi);
       setLoading(true);
-    });
+    })
+    .catch((err) => {
+      console.log(err.response)
+    })
   }, [sortBy, topicFilter]);
 
   return (
@@ -60,7 +65,7 @@ export function Articles({ topicFilter }) {
                 articleId={article.article_id}
                 setVoteUpdater={setVoteUpdater}
               />{" "}
-              votes
+              
             </li>
           );
         })}

@@ -3,7 +3,6 @@ import { useEffect, useState, useContext } from "react";
 import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
 import { UserContext } from "../Utils/User";
-// import { VoteUpdater } from "./VoteUpdater";
 
 export function Comments() {
   const { article_id } = useParams();
@@ -16,7 +15,7 @@ export function Comments() {
     getCommentsForArticle(article_id).then((commentsFromApi) => {
       setComments(commentsFromApi);
     });
-  }, [comments]);
+  }, [comments, article_id]);
 
   const handleDeleteComment = (value) => () => {
     deleteComment(value);
@@ -47,7 +46,6 @@ export function Comments() {
                 
                 </div>
               ) : null}
-              {/* <VoteUpdater /> */}
             </li>
           );
         })}
