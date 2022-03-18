@@ -8,6 +8,9 @@ import { SortBy } from "./SortBy";
 import { formatDate } from "../Utils/api";
 
 export function Articles({ topicFilter }) {
+
+  const {topic } = useParams();
+
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState(false);
@@ -22,7 +25,7 @@ export function Articles({ topicFilter }) {
 
 
   useEffect(() => {
-    getArticles(topicFilter, sort)
+    getArticles(topic, sort)
       .then((articlesFromApi) => {
         setArticles(articlesFromApi);
         setLoading(true);

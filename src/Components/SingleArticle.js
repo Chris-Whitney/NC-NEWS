@@ -44,6 +44,7 @@ export function SingleArticle() {
             {singleArticle.author}
           </span>{" "}
           {formatDate(singleArticle.created_at)}
+          <br></br>
           <VoteUpdater votes={singleArticle.votes} articleId={singleArticle.article_id}/>
         </li>
       </ul>
