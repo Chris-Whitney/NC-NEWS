@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { getTopics } from "../Utils/api";
 
 export function Nav({ setTopicFilter, setSortBy }) {
   const [topics, setTopics] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getTopics().then((topicsFromApi) => {
@@ -11,7 +14,9 @@ export function Nav({ setTopicFilter, setSortBy }) {
   }, []);
 
   const handleDropdownClick = (event) => {
-    setTopicFilter(event.target.value);
+    const topicSlug = event.target.value
+    setTopicFilter(topicSlug);
+    navigate(`/topic/${topicSlug}/articles`);
   };
 
   return (

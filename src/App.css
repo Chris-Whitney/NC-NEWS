@@ -207,6 +207,14 @@ text-decoration: none;
   margin-left: 5px;
 }
 
+
+/* error */
+
+.error-container {
+  height: 100vh;
+  text-align: center;
+}
+
 /* footer */
 .footer {
   text-align: center;

@@ -1,16 +1,20 @@
-// import { useParams } from 'react-router-dom';
-// import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-// export function SingleTopic () {
-//     const { topic_slug } = useParams();
+export function SingleTopic() {
+  const { topic_slug } = useParams();
 
-//     const [singleTopic, setSingleTopic] = useState([]);
+  console.log(topic_slug);
 
-//     useEffect(() => {
-//         getSingleTopic()
-//     }, []);
+  const [singleTopic, setSingleTopic] = useState([]);
 
-//     return (
-//         <h1>single topic </h1>
-//     )
-// }
+//   useEffect(() => {
+//       getSingleTopic()
+//   }, []);
+
+  return (
+    <div>
+      <h1>single topic </h1>
+    </div>
+  );
+}

@@ -15,13 +15,18 @@ export function SingleArticle() {
   const [singleArticle, setSingleArticle] = useState({});
 
   useEffect(() => {
+    let unmounted = false;
     getSingleArticle(article_id).then((articleFromApi) => {
-      setSingleArticle(articleFromApi);
-      setLoading(true);
+      if (!unmounted) {
+        setSingleArticle(articleFromApi);
+        setLoading(true);
+      }
+      
     })
     .catch((err) => {
       setError(err.response)
     })
+    return () => {unmounted = true}
   }, [article_id, singleArticle.votes]);
 
   return (

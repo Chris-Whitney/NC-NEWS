@@ -42,16 +42,3 @@ export function Login() {
     </>
   );
 }
-
-{
-  /* <form>
-        <select onChange={handleUserSelect}>
-        <option value="" disabled selected hidden>
-              select user
-            </option>
-          {users.map((user) => {
-            return <option key={user.username}>{user.username}</option>;
-          })}
-        </select>
-      </form> */
-}

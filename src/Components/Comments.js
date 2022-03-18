@@ -12,9 +12,13 @@ export function Comments() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
+    let unmounted = false;
     getCommentsForArticle(article_id).then((commentsFromApi) => {
-      setComments(commentsFromApi);
+      if (!unmounted) {
+        setComments(commentsFromApi);
+      }
     });
+    return () => {unmounted = true}
   }, [comments, article_id]);
 
   const handleDeleteComment = (value) => () => {
@@ -37,13 +41,12 @@ export function Comments() {
               <p className="comments-body">{comment.body}</p>
               {loggedInUser === comment.author ? (
                 <div className="del-btn-container">
-                <button
-                  className="del-btn"
-                  onClick={handleDeleteComment(comment.comment_id)}
-                >
-                  X
-                </button>
-                
+                  <button
+                    className="del-btn"
+                    onClick={handleDeleteComment(comment.comment_id)}
+                  >
+                    X
+                  </button>
                 </div>
               ) : null}
             </li>
