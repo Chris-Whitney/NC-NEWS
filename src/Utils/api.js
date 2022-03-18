@@ -1,4 +1,5 @@
 import axios from "axios";
+const dayjs = require('dayjs');
 
 const newsApi = axios.create({
   baseURL: "https://chrisw-nc-news.herokuapp.com/api",
@@ -61,3 +62,9 @@ export const deleteComment = (comment_id) => {
     return;
   });
 };
+
+export const formatDate = (date) => {
+  if (date) {
+    return dayjs(date).$d.toString().substring(4,15);
+  }
+}

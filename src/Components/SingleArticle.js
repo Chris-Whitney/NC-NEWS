@@ -4,6 +4,7 @@ import { getSingleArticle } from "../Utils/api";
 import { Comments } from "./Comments";
 import { VoteUpdater } from "./VoteUpdater";
 import { Error } from './Error';
+import { formatDate } from "../Utils/api";
 
 export function SingleArticle() {
   const { article_id } = useParams();
@@ -42,7 +43,7 @@ export function SingleArticle() {
           <span style={{ color: "rgb(253, 118, 0)" }}>
             {singleArticle.author}
           </span>{" "}
-          {singleArticle.created_at}
+          {formatDate(singleArticle.created_at)}
           <VoteUpdater votes={singleArticle.votes} articleId={singleArticle.article_id}/>
         </li>
       </ul>

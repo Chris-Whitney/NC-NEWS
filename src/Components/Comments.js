@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
 import { UserContext } from "../Utils/User";
+import { formatDate } from "../Utils/api";
 
 export function Comments() {
   const { article_id } = useParams();
@@ -36,7 +37,7 @@ export function Comments() {
                 <span style={{ color: "rgb(253, 118, 0)" }}>
                   {comment.author}
                 </span>{" "}
-                posted on {comment.created_at}
+                posted on {formatDate(comment.created_at)}
               </p>
               <p className="comments-body">{comment.body}</p>
               {loggedInUser === comment.author ? (

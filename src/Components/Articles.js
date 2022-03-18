@@ -5,6 +5,7 @@ import { getArticles } from "../Utils/api";
 import { getCommentsForArticle } from "../Utils/api";
 import { VoteUpdater } from "./VoteUpdater";
 import { SortBy } from "./SortBy";
+import { formatDate } from "../Utils/api";
 
 export function Articles({ topicFilter }) {
   const [loading, setLoading] = useState(false);
@@ -55,7 +56,8 @@ export function Articles({ topicFilter }) {
                     <span style={{ color: "rgb(253, 118, 0)" }}>
                       {article.author}
                     </span>{" "}
-                    {article.created_at}
+                    <br></br>
+                    {formatDate(article.created_at)}
                   </p>
                   <Link
                     to={`/articles/${article.article_id}`}
