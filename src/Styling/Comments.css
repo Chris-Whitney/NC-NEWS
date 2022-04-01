@@ -4,7 +4,7 @@
 
 .comments-card {
   border: 2px solid;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(176, 215, 255);
   margin: 20px;
   padding: 0px 10px 0px 10px;
   border-radius: 10px;
@@ -16,8 +16,9 @@
 }
 
 .comments-body {
-color: inherit
+color: inherit;
 }
+
 
 .del-btn {
   padding: 5px;

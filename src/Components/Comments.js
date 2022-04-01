@@ -32,7 +32,7 @@ export function Comments() {
 
   return (
     <div>
-      <ul>
+      <ul className="comments-ul">
         {comments.map((comment) => {
           return (
             <li className="comments-card" key={comment.comment_id}>

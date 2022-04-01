@@ -3,16 +3,14 @@ ul {
     padding: 0px;
   }
 
-  .articles-div {
 
-  }
   .article-comments {
     margin: 5px;
   }
   
   .articles-li {
     border: 2px solid;
-    background-color: white;
+    background-color: rgb(176, 215, 255);
     margin: 20px;
     padding: 0px 10px 10px 10px;
     border-radius: 10px;

@@ -53,7 +53,7 @@ export function VoteUpdater({ votes, articleId }) {
         </button>
       )}
 
-      {vote}
+      {vote} likes
 
       {hasDisliked ? (
         <button className="votes-btn" disabled>

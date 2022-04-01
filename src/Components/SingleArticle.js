@@ -5,6 +5,7 @@ import { Comments } from "./Comments";
 import { VoteUpdater } from "./VoteUpdater";
 import { Error } from './Error';
 import { formatDate } from "../Utils/api";
+import '../Styling/SingleArticle.css';
 
 export function SingleArticle() {
   const { article_id } = useParams();
@@ -33,7 +34,7 @@ export function SingleArticle() {
   return (
     <>
     {error ?  <Error error={error} /> : loading ? (
-    <div>
+    <div className="sing-art-div">
       <ul className="sing-art-li">
         <h2 className="sing-art-title">{singleArticle.title}</h2>
         <li className="sing-art-body">{singleArticle.body}</li>
@@ -44,6 +45,7 @@ export function SingleArticle() {
             {singleArticle.author}
           </span>{" "}
           {formatDate(singleArticle.created_at)}
+          <br></br>
           <br></br>
           <VoteUpdater votes={singleArticle.votes} articleId={singleArticle.article_id}/>
         </li>
