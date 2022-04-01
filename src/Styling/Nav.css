@@ -1,0 +1,15 @@
+.nav-bar {
+    margin: 5px;
+    color: silver;
+    text-align: left;
+  }
+  
+  .select-box {
+    margin-left: 5px;
+  }
+
+  @media screen and (min-width: 600px)  { .nav-bar {
+    margin-left: 220px;
+    margin-top: 10px;
+}
+  }

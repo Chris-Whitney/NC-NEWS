@@ -1,5 +1,6 @@
 import axios from "axios";
 const dayjs = require('dayjs');
+const relativeTime = require('dayjs/plugin/relativeTime');
 
 const newsApi = axios.create({
   baseURL: "https://chrisw-nc-news.herokuapp.com/api",
@@ -64,7 +65,9 @@ export const deleteComment = (comment_id) => {
 };
 
 export const formatDate = (date) => {
-  if (date) {
-    return dayjs(date).$d.toString().substring(4,15);
-  }
+  
+    dayjs.extend(relativeTime)
+    let a = dayjs();
+    return dayjs(date).from(a);
+  
 }

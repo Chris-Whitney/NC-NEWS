@@ -1,4 +1,5 @@
 import react from "react";
+import '../Styling/Articles.css';
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getArticles } from "../Utils/api";
@@ -9,7 +10,8 @@ import { formatDate } from "../Utils/api";
 
 export function Articles({ topicFilter }) {
 
-  const {topic } = useParams();
+  const { topic } = useParams();
+  
 
   const [loading, setLoading] = useState(false);
 
@@ -30,9 +32,6 @@ export function Articles({ topicFilter }) {
         setArticles(articlesFromApi);
         setLoading(true);
       })
-      .catch((err) => {
-        console.log(err.response);
-      });
   }, [sort, topicFilter]);
 
   return (
@@ -51,7 +50,7 @@ export function Articles({ topicFilter }) {
                     <h2 className="articles-title">{article.title}</h2>
                   </Link>
                   <p className="articles-topic">
-                    Topic:{" "}
+                    Topic -{" "}
                     <span style={{ color: "rgb(253, 118, 0)" }}>
                       {article.topic}
                     </span>
@@ -59,7 +58,7 @@ export function Articles({ topicFilter }) {
                     <span style={{ color: "rgb(253, 118, 0)" }}>
                       {article.author}
                     </span>{" "}
-                    <br></br>
+                    
                     {formatDate(article.created_at)}
                   </p>
                   <Link

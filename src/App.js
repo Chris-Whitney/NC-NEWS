@@ -8,7 +8,7 @@ import { SingleArticle } from "./Components/SingleArticle";
 import { Footer } from "./Components/Footer";
 import { Login } from "./Components/Login";
 import { UserContext } from "./Utils/User";
-import { SingleTopic } from "./Components/SingleTopic";
+
 
 function App() {
   const [topicFilter, setTopicFilter] = useState();
@@ -38,14 +38,18 @@ function App() {
                 </>
               }
             />
-            <Route path='/topic/:topic/articles' element= {<>
+            <Route
+              path="/topic/:topic/articles"
+              element={
+                <>
                   <Nav setTopicFilter={setTopicFilter} />
                   <Articles
                     setTopicFilter={setTopicFilter}
                     topicFilter={topicFilter}
                   />
                 </>
-              }/>
+              }
+            />
             <Route path="/articles/:article_id" element={<SingleArticle />} />
 
             <Route path="/login" element={<Login />} />

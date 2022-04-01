@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import "../Styling/Comments.css";
 import { useEffect, useState, useContext } from "react";
 import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
@@ -19,7 +20,9 @@ export function Comments() {
         setComments(commentsFromApi);
       }
     });
-    return () => {unmounted = true}
+    return () => {
+      unmounted = true;
+    };
   }, [comments, article_id]);
 
   const handleDeleteComment = (value) => () => {
@@ -34,10 +37,7 @@ export function Comments() {
           return (
             <li className="comments-card" key={comment.comment_id}>
               <p className="comments-author">
-                <span style={{ color: "rgb(253, 118, 0)" }}>
-                  {comment.author}
-                </span>{" "}
-                posted on {formatDate(comment.created_at)}
+                <span style={{ color: "rgb(253, 118, 0)" }}>{comment.author}</span> posted {formatDate(comment.created_at)}
               </p>
               <p className="comments-body">{comment.body}</p>
               {loggedInUser === comment.author ? (

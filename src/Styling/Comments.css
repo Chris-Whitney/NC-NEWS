@@ -1,0 +1,31 @@
+.select-box {
+  margin-bottom: 10px;
+}
+
+.comments-card {
+  border: 2px solid;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  padding: 0px 10px 0px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.comments-author {
+    color: black;
+}
+
+.comments-body {
+color: inherit
+}
+
+.del-btn {
+  padding: 5px;
+  margin-bottom: 5px;
+  background-color: #009cf0;
+  border-radius: 10px;
+}
+
+.del-btn-container {
+  text-align: right;
+}

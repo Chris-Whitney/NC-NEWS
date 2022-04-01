@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getTopics } from "../Utils/api";
+import '../Styling/Nav.css';
 
 export function Nav({ setTopicFilter, setSortBy }) {
   const [topics, setTopics] = useState([]);

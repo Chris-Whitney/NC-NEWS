@@ -1,4 +1,5 @@
 import Button from "@mui/material/Button";
+import '../Styling/SortBy.css';
 
 export function SortBy({ setSortBy }) {
 
