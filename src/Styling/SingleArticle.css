@@ -3,6 +3,9 @@
     padding-bottom: 0px;
 }
 
-.sing-art-h3 {
-    
+
+
+@media screen and (min-width: 900px)  { .sing-art-h3 {
+    margin-left: 220px;
+  } 
 }

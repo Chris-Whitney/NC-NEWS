@@ -48,21 +48,21 @@ export function VoteUpdater({ votes, articleId }) {
     <>
       {hasVoted ? (
         <button className="votes-btn" disabled>
-          <ThumbUpAltIcon />
+          <ThumbUpAltIcon fontSize="smaller"/>
         </button>
       ) : (
         <button className="votes-btn" onClick={addVotes}>
-          <ThumbUpAltIcon />
+          <ThumbUpAltIcon fontSize="smaller"/>
         </button>
       )}
       {vote} likes
       {hasDisliked ? (
         <button className="votes-btn" disabled>
-          <ThumbDownAltIcon />
+          <ThumbDownAltIcon fontSize="smaller"/>
         </button>
       ) : (
         <button className="votes-btn" onClick={minusVotes}>
-          <ThumbDownAltIcon />
+          <ThumbDownAltIcon fontSize="smaller"/>
         </button>
       )}
       <p className="login-prompt">{loginPrompt}</p>

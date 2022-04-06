@@ -54,7 +54,7 @@ export function PostComment({ article_id }) {
             className="textarea-box"
             value={textBody}
             onChange={handleChange}
-            placeholder="type your comment here..."
+            placeholder="hmmm..."
             required
             rows="4"
             cols="40"

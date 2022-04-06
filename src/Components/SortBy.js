@@ -8,14 +8,13 @@ export function SortBy({ setSortBy }) {
   };
 
   const buttonStyles = {
-      m: '5px',
-      fontSize: '12px',
-      backgroundColor: '#009cf0'
-  }
+    m: "5px",
+    fontSize: "12px",
+    backgroundColor: "#009cf0",
+  };
 
   return (
     <div className="sort-bar">
-      <p className="sortby-p">Sort by:</p>
       <Button
         size="small"
         sx={buttonStyles}

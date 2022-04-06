@@ -5,6 +5,7 @@ import { Comments } from "./Comments";
 import { VoteUpdater } from "./VoteUpdater";
 import { Error } from './Error';
 import { formatDate } from "../Utils/api";
+import MessageIcon from '@mui/icons-material/Message';
 import '../Styling/SingleArticle.css';
 
 export function SingleArticle() {
@@ -50,7 +51,7 @@ export function SingleArticle() {
           <VoteUpdater votes={singleArticle.votes} articleId={singleArticle.article_id}/>
         </li>
       </ul>
-      <h3 className="sing-art-h3">Comments:</h3>
+      <h3 className="sing-art-h3">Comments <MessageIcon fontSize="smaller"/></h3>
       <Comments />
     </div>
     ) : <p>loading...</p>}
