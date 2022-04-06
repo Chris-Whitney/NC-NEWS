@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getTopics } from "../Utils/api";
+import { Box, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 import '../Styling/Nav.css';
 
 export function Nav({ setTopicFilter, setSortBy }) {
@@ -22,19 +23,20 @@ export function Nav({ setTopicFilter, setSortBy }) {
 
   return (
     <div className="nav-bar">
-      <form>
-        <label className="select-box-label">
-          Topic:
-          <select defaultValue={"select topic"}onChange={handleDropdownClick}>
-            <option value='select topic' disabled>
+      <Box sx={{maxWidth: 150}}>
+        <FormControl variant="standard">
+        <InputLabel>Topic</InputLabel>
+          <Select defaultValue={"select topic"}onChange={handleDropdownClick}>
+            <MenuItem value='select topic' disabled>
               select topic
-            </option>
+            </MenuItem>
             {topics.map((topic) => {
-              return <option value={topic.slug} key={topic.slug}>{topic.slug}</option>;
+              return <MenuItem value={topic.slug} key={topic.slug}>{topic.slug}</MenuItem>;
             })}
-          </select>
-        </label>
-      </form>
+          </Select>
+       
+        </FormControl>
+      </Box>
     </div>
   );
 }

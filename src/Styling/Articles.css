@@ -8,11 +8,11 @@ ul {
     margin: 5px;
   }
   
-  .articles-li {
+  li.articles-li {
     border: 2px solid;
     background-color: rgb(176, 215, 255);
-    margin: 20px;
-    padding: 0px 10px 10px 10px;
+    margin: 15px;
+    padding: 0px 10px 0px 10px;
     border-radius: 10px;
   }
   
@@ -38,7 +38,11 @@ ul {
     text-decoration: none;
   }
 
-  @media screen and (min-width: 600px)  { .articles-div {
+  .loading {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 900px)  { .articles-div {
     margin-left: 200px;
     margin-right: 200px;
 }

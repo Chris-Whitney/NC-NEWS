@@ -1,6 +1,7 @@
-.sortby-p {
+p.sortby-p {
     text-align: center;
     margin-bottom: 0px;
+    padding-bottom: 10px;
   }
 
   .sort-btn {
@@ -14,3 +15,5 @@
     display: flex;
     justify-content: center;
   }
+
+  

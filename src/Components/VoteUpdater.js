@@ -2,6 +2,9 @@ import { patchArticleVoteInc } from "../Utils/api";
 import { patchArticleVoteDec } from "../Utils/api";
 import { useState, useContext } from "react";
 import { UserContext } from "../Utils/User";
+import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
+import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
+import "../Styling/VoteUpdater.css";
 
 export function VoteUpdater({ votes, articleId }) {
   const [vote, setVote] = useState(votes);
@@ -13,7 +16,7 @@ export function VoteUpdater({ votes, articleId }) {
 
   const [loginPrompt, setLoginPrompt] = useState("");
 
-  const { setLoggedInUser, isLoggedIn, loggedInUser } = useContext(UserContext);
+  const { isLoggedIn } = useContext(UserContext);
 
   const addVotes = () => {
     if (isLoggedIn) {
@@ -45,23 +48,21 @@ export function VoteUpdater({ votes, articleId }) {
     <>
       {hasVoted ? (
         <button className="votes-btn" disabled>
-          👍
+          <ThumbUpAltIcon />
         </button>
       ) : (
         <button className="votes-btn" onClick={addVotes}>
-          👍
+          <ThumbUpAltIcon />
         </button>
       )}
-
       {vote} likes
-
       {hasDisliked ? (
         <button className="votes-btn" disabled>
-          👎
+          <ThumbDownAltIcon />
         </button>
       ) : (
         <button className="votes-btn" onClick={minusVotes}>
-          👎
+          <ThumbDownAltIcon />
         </button>
       )}
       <p className="login-prompt">{loginPrompt}</p>

@@ -1,14 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useContext } from "react";
 import { postComment } from "../Utils/api";
 import { UserContext } from "../Utils/User";
+import Button from "@mui/material/Button";
+import SendIcon from '@mui/icons-material/Send';
+import '../Styling/PostComment.css';
 
 export function PostComment({ article_id }) {
   const [textBody, setTextBody] = useState("");
 
   const [loginPrompt, setLoginPrompt] = useState("");
-
-  // const [newComment, setNewComment] = useState({});
 
   const { loggedInUser, isLoggedIn } = useContext(UserContext);
 
@@ -35,6 +36,14 @@ export function PostComment({ article_id }) {
     
   };
 
+  const postButtonStyle = {
+      ml: '25px',
+      mb: '10px',
+      fontSize: '12px',
+      backgroundColor: '#009cf0',
+
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -53,9 +62,9 @@ export function PostComment({ article_id }) {
         </label>
         <br></br>
         <div className="post-cmnt-btn">
-        <button className="post-button" type="submit">
-          Post
-        </button>
+        <Button sx={postButtonStyle} variant="contained" type="submit">
+          Post<SendIcon fontSize="smaller" />
+        </Button>
         </div>
       </form>
     </div>

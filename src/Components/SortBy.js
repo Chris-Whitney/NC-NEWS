@@ -1,29 +1,48 @@
 import Button from "@mui/material/Button";
-import '../Styling/SortBy.css';
+import { fontSize } from "@mui/system";
+import "../Styling/SortBy.css";
 
 export function SortBy({ setSortBy }) {
-
   const handleSortData = (e) => {
-    setSortBy({sort_by: e.target.value});
+    setSortBy({ sort_by: e.target.value });
   };
+
+  const buttonStyles = {
+      m: '5px',
+      fontSize: '12px',
+      backgroundColor: '#009cf0'
+  }
 
   return (
     <div className="sort-bar">
       <p className="sortby-p">Sort by:</p>
-      <button className="sort-btn" value="created_at" onClick={handleSortData}>
+      <Button
+        size="small"
+        sx={buttonStyles}
+        variant="contained"
+        value="created_at"
+        onClick={handleSortData}
+      >
         Date
-      </button>
-      <button className="sort-btn" value="votes" onClick={handleSortData}>
+      </Button>
+      <Button
+        size="small"
+        variant="contained"
+        sx={buttonStyles}
+        value="votes"
+        onClick={handleSortData}
+      >
         Votes
-      </button>
-      <button
-        disabled=""
-        className="sort-btn"
+      </Button>
+      <Button
+        size="small"
+        variant="contained"
+        sx={buttonStyles}
         value="comment_count"
         onClick={handleSortData}
       >
         Comments
-      </button>
+      </Button>
     </div>
   );
 }

@@ -3,6 +3,8 @@ import { UserContext } from "../Utils/User";
 import { getAllUsers } from "../Utils/api";
 import { useNavigate } from "react-router-dom";
 
+import '../Styling/Login.css';
+
 
 export function Login() {
   const [users, setUsers] = useState([]);
@@ -38,7 +40,7 @@ export function Login() {
         })}
       </ul>
     </div>
-    ) : <p>loading...</p>}
+    ) : <p className='loading'>loading...</p>}
     </>
   );
 }

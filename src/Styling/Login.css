@@ -1,0 +1,26 @@
+.loading {
+    text-align: center;
+}
+
+.login-user-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 2px solid black;
+    object-fit: fill;
+  }
+  
+  .login-user-ul {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .login-container {
+    height: 100vh;
+  }
+  .login-prompt {
+    color: red;
+    font-weight: bold;
+  }

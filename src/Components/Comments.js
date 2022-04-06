@@ -1,5 +1,7 @@
 import { useParams } from "react-router-dom";
 import "../Styling/Comments.css";
+import Button from "@mui/material/Button";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { useEffect, useState, useContext } from "react";
 import { deleteComment, getCommentsForArticle } from "../Utils/api";
 import { PostComment } from "./PostComment";
@@ -9,7 +11,7 @@ import { formatDate } from "../Utils/api";
 export function Comments() {
   const { article_id } = useParams();
 
-  const { isLoggedIn, loggedInUser } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
 
   const [comments, setComments] = useState([]);
 
@@ -29,25 +31,39 @@ export function Comments() {
     deleteComment(value);
     alert("deleted!");
   };
+   const deleteButtonStyle ={
+    m: '5px',
+    mb: '10px',
+    pl: '0px',
+    pr: "0px",
+    fontSize: '12px',
+    backgroundColor: '#009cf0'
+   }
 
   return (
-    <div>
+    <div className="comments-div">
       <ul className="comments-ul">
         {comments.map((comment) => {
           return (
             <li className="comments-card" key={comment.comment_id}>
               <p className="comments-author">
-                <span style={{ color: "rgb(253, 118, 0)" }}>{comment.author}</span> posted {formatDate(comment.created_at)}
+                <span style={{ color: "rgb(253, 118, 0)" }}>
+                  {comment.author}
+                </span>{" "}
+                posted {formatDate(comment.created_at)}
               </p>
               <p className="comments-body">{comment.body}</p>
               {loggedInUser === comment.author ? (
                 <div className="del-btn-container">
-                  <button
-                    className="del-btn"
+                  <Button
+                    sx={deleteButtonStyle}
+                    variant="contained"
+                    size="small"
+                    // className="del-btn"
                     onClick={handleDeleteComment(comment.comment_id)}
                   >
-                    X
-                  </button>
+                    <DeleteForeverIcon fontSize="small"/>
+                  </Button>
                 </div>
               ) : null}
             </li>

@@ -1,3 +1,5 @@
+import '../Styling/Error.css';
+
 export function Error(props) {
 
 

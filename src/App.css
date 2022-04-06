@@ -6,34 +6,10 @@ body {
 
 /* components */
 
-.select-box {
-  margin-bottom: 10px;
-}
 
 
 
-.login-user-img {
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  border: 2px solid black;
-  object-fit: fill;
-}
 
-.login-user-ul {
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.login-container {
-  height: 100vh;
-}
-.login-prompt {
-  color: red;
-  font-weight: bold;
-}
 
 /* Articles */
 
@@ -42,77 +18,17 @@ body {
 
 /* comments */
 
-.comments-card {
-  border: 2px solid;
-  background-color: rgb(255, 255, 255);
-  margin: 20px;
-  padding: 0px 10px 0px 10px;
-  border-radius: 10px;
-  font-size: 12px;
-}
 
-.votes-btn {
-  margin: 10px;
-  background-color: #009cf0;
-  border-radius: 10px;
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-}
 
-.textarea-box {
-  border: 0px;
-  display: flex;
-  justify-content: center;
-  margin-left: 25px;
-  margin-top: 10px;
-}
 
-.post-button {
-  margin-left: 25px;
-  padding: 5px;
-  background-color: #009cf0;
-  border-radius: 10px;
-}
 
-.post-cmnt-label {
-  margin-left: 25px;
-}
 
-.post-cmnt-btn {
-  margin-bottom: 5px;
-}
-
-.del-btn {
-  padding: 5px;
-  margin-bottom: 5px;
-  background-color: #009cf0;
-  border-radius: 10px;
-}
-
-.del-btn-container {
-  text-align: right;
-}
 
 /* nav */
 
 
 /* error */
 
-.error-container {
-  height: 100vh;
-  text-align: center;
-}
+
 
 /* footer */
-.footer {
-  text-align: center;
-  color: red;
-  font-size: 10px;
-  background-color: rgb(0, 0, 0);
-  padding: 5px;
-}

@@ -65,7 +65,7 @@ export function Articles({ topicFilter }) {
                     to={`/articles/${article.article_id}`}
                     className="articles-comments-btn"
                   >
-                    {article.comment_count} Comments{" "}
+                    {article.comment_count} comments{" "}
                   </Link>
                   <VoteUpdater
                     votes={article.votes}
@@ -78,7 +78,7 @@ export function Articles({ topicFilter }) {
           </ul>
         </div>
       ) : (
-        <p>loading...</p>
+        <p className="loading">loading...</p>
       )}
     </>
   );

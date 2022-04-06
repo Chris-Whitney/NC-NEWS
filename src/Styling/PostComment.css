@@ -1,0 +1,37 @@
+.textarea-box {
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    margin-left: 25px;
+    margin-top: 10px;
+  }
+  
+  .post-button {
+    margin-left: 25px;
+    padding: 5px;
+    background-color: #009cf0;
+    border-radius: 10px;
+  }
+  
+  .post-cmnt-label {
+    margin-left: 25px;
+  }
+  
+  .post-cmnt-btn {
+    margin-bottom: 5px;
+  }
+  
+  .del-btn {
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #009cf0;
+    border-radius: 10px;
+  }
+  
+  .del-btn-container {
+    text-align: right;
+  }
+
+  .login-prompt {
+    margin-left: 25px;  
+  }

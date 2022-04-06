@@ -8,7 +8,8 @@
     margin-left: 5px;
   }
 
-  @media screen and (min-width: 600px)  { .nav-bar {
+
+  @media screen and (min-width: 900px)  { .nav-bar {
     margin-left: 220px;
     margin-top: 10px;
 }

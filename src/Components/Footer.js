@@ -1,3 +1,5 @@
+import '../Styling/Footer.css';
+
 export function Footer() {
     return (
         <div className="footer">
